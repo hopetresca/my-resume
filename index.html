@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope Tresca</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://kit.fontawesome.com/72ecfec589.js" crossorigin="anonymous"></script>
+<script src="index.js"></script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@5/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "Jr73KZwu15MSaut8r",
+      });
+   })();
+</script>
+</head>
+<body>
+    <section id="landing-page" onmousemove="moveBackground(event)">
+        <nav>
+            <figure>
+                <img id="personal-logo" src="assets/ht_logo.jpg" alt="Hope Logo">
+            </figure>
+            <ul class="nav__link--list">
+                <li class="nav__link" onclick="toggleModal()">
+                    <a href="#contact" class="
+                    nav__link--anchor
+                    link__hover-effect
+                    link__hover-effect--black
+                    ">About</a>
+                </li>
+                <li class="nav__link">
+                    <a href="#projects" class="
+                    nav__link--anchor
+                    link__hover-effect
+                    link__hover-effect--black
+                    ">Projects</a>
+                </li>
+                <li class="nav__link" onclick="toggleModal()">
+                    <a href="#" class="
+                    nav__link--anchor
+                    link__hover-effect
+                    link__hover-effect--black
+                    ">Contact</a>
+                </li>
+                <li class="nav__link click" onclick="toggleContrast()">
+                    <a href="#" class="
+                    nav__link--anchor
+                    link__hover-effect
+                    link__hover-effect--black
+                    ">
+                    <i class="fas fa-adjust"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <header class="header">
+            <div class="header__content">
+                <h1 class="title">Hey</h1>
+                <h1 class="title dark-pink">I'm Hope.</h1>
+                <p class="header__para">
+                    I'm a <b><span class="dark-pink">Frontend Software Engineer.</span></b> My goal is to help businesses and individuals bring their ideas to life.
+                    <br>
+                    Here's a bit more <b><span class="dark-pink click" onclick="toggleModal()">about me.</span></b>
+                </p>
+                <div class="social__list">
+                    <a href="https://github.com/hopetresca" target=_blank class="social__link click">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#Contact" target=_blank class="social__link click">
+                        <i class="fa-solid fa-envelope-open"></i>
+                    </a>
+                    <a href="#" target=_blank class="social__link click">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <a href="#">
+            <button class="mail__btn click" onclick="toggleModal()">
+                <i class="fa-regular fa-envelope"></i>
+            </button>
+        </a>
+        <a href="#projects" class="scroll">
+            <div class="scroll__icon click"><span class="scroll__text">*</span></div>
+        </a>
+        <div class="modal">
+            <div class="modal__half modal__about">
+                <h3 class="modal__title modal__title--about">
+                    Here's a bit about me.
+                </h3>
+                <h4 class="modal__sub-title modal__sub-title--about">Frontend Software Engineer</h4>
+                <p class="modal__para">
+                    I'm a 21 year-old American <b class="dark-pink">frontend software engineer</b> with a strong passion for developing website with amazing <b class="dark-pink">user experiences.</b>
+                <br>
+                    I'm currently learning how to work on extremely difficult engineering problems and learning from a team consisting of some of the most <b class="dark-pink">talented</b> and <b class="dark-pink">experienced</b> software engineers every day.
+                </p>
+                <div class="modal__languages">
+                    <figure class="modal__language">
+                        <img class="modal__language--img-html" src="assets/HTML logo.png" alt="HTML">
+                        <span class="language__name">HTML</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img class="modal__language--img-css" src="assets/css img.png" alt="CSS">
+                        <span class="language__name">CSS</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img class="modal__language--img-js" src="assets/JavaScript-Logo.png" alt="JavaScript">
+                        <span class="language__name">JavaScript</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img class="modal__language--img-react" src="assets/react logo.svg" alt="React">
+                        <span class="language__name">React</span>
+                    </figure>
+                </div>
+            </div>
+            <div class="modal__half modal__contact">
+                <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+                <h3 class="modal__title modal__title--contact">
+                    Let's have a chat!
+                </h3>
+                <h4 class="modal__sub-title modal__sub-title--contact">
+                    I'm currently looking for new opportunities. I'd love to hear from you!
+                </h4>
+                <form id="contact__form" onsubmit="contact(event)">
+                    <div class="form__item">
+                        <label class="form__item--label">Name</label>
+                        <input class="input" name="user_name" type="text" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label">Email</label>
+                        <input class="input" name="user_email" type="email" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label">Message</label>
+                        <textarea class="input" name="message" type="text" required></textarea>
+                    </div>
+                    <button id="contact__submit" onsubmit="contact(event)">
+                        Send it my way
+                    </button>
+                </form>
+                <div class="modal__overlay modal__overlay--loading">
+                    <i class="fas fa-spinner"></i>
+                </div>
+                <div class="modal__overlay modal__overlay--success">
+                    Thanks for the message! l   Looking forward to speaking to you soon.
+                </div>
+            </div>
+        </div>
+            <img src="assets/moon-img-background.png" class="shape shape--0">
+            <img src="assets/star-img-background.webp" class="shape shape--1">
+            <img src="assets/squiggle-img-background.png" class="shape shape--2">
+            <img src="assets/squiggle-img-background.png" class="shape shape--3">
+            <img src="assets/moon-img-background.png" class="shape shape--4">
+            <img src="assets/star-img-background.webp" class="shape shape--5">
+            <img src="assets/star-img-background.webp" class="shape shape--6">
+            <img src="assets/squiggle-img-background.png" class="shape shape--7">
+            <img src="assets/moon-img-background.png" class="shape shape--8">
+
+    </section>
+    <section id="projects">
+        <div class="container">
+            <div class="row">
+                <h1 class="section__title">
+                    Here are some of my <span class="dark-pink">projects.</span>
+                </h1>
+                <ul class="project__list">
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img src="assets/FES project 1/assets/wave (1).svg" class="project__img" alt="Project 1">
+                            <div class="project__wrapper--bg">
+                                <div class="project__description">
+                                    <h3 class="project__description--title">
+                                    Library
+                                    </h3>
+                                    <h4 class="project__description--sub-title">
+                                    HTML, CSS
+                                    </h4>
+                                    <p class="project__description--para">
+                                    Here is where you can find 8 of the top rating books of 2025 and 2026. This project was built using HTML, CSS, and JavaScript.
+                                    </p>
+                                    <div class="project__description--links">
+                                    <a href="assets/FES project 1/index.html" class="project__description--link" target="_blank">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                    <a href="assets/FES project 1/index.html" class="project__description--link" target="_blank">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer__row">
+                <figure>
+                    <img src="assets/ht_logo.jpg" class="footer__logo" alt="Hope Logo">
+                </figure>
+                <div class="footer__social--list">
+                    <a href="https://github.com/hopetresca" class="
+                footer__social--link
+                link__hover-effect
+                link__hover-effect--white" target="_blank">Github</a>
+
+                    <a href="#" onclick="scrollToTopAndOpenModal()" class="
+                footer__social--link
+                link__hover-effect
+                link__hover-effect--white">ZipRecruiter</a>
+
+                    <a href="#" onclick="scrollToTopAndOpenModal()" class="
+                footer__social--link
+                link__hover-effect
+                link__hover-effect--white">Email</a>
+
+                    <a href="#" onclick="scrollToTopAndOpenModal()" class="
+                footer__social--link
+                link__hover-effect
+                link__hover-effect--white">Resume</a>
+                </div>
+                <div class="footer__copyright">
+                copyright &copy; 2026 Hope Tresca. All rights reserved.
+            </div>
+        </div>
+    
+    </footer>
+</body>
+</html>
